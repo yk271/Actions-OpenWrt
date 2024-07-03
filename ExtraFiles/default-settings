@@ -1,0 +1,12 @@
+
+uci delete network.wan6
+uci commit network
+
+uci set dhcp.@dnsmasq[0].filter_aaaa=1
+uci set dhcp.@dnsmasq[0].rebind_protection=0
+uci commit dhcp
+
+uci set firewall.@defaults[0].fullcone=1
+uci commit firewall
+
+exit 0
