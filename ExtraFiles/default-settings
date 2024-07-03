@@ -1,5 +1,7 @@
 
 uci delete network.wan6
+uci set network.wan.peerdns='0'
+uci set network.wan.dns='223.5.5.5 119.29.29.29'
 uci commit network
 
 uci set upnpd.config.enabled='1'
