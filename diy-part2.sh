@@ -41,7 +41,7 @@ wget https://raw.githubusercontent.com/yk271/proxy-rule/main/block_host.txt -O .
 wget https://raw.githubusercontent.com/yk271/proxy-rule/main/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 
 # 删除自带的 Argon 主题
-rm -rf ./feeds/luci/themes/luci-theme-argon
+rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
 
 # 添加主题
 git clone https://github.com/jerrykuku/luci-theme-argon.git -b 18.06 ./package/luci-theme-argon
