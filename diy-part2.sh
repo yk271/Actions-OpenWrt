@@ -11,7 +11,7 @@
 #
 
 # 修改内核版本
-sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
+#sed -i 's/KERNEL_PATCHVER:=.*/KERNEL_PATCHVER:=5.15/g' ./target/linux/x86/Makefile
 
 # x86 主页型号只显示 CPU 信息
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' ./package/lean/autocore/files/x86/autocore
