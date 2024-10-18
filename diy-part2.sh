@@ -30,7 +30,7 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/def
 cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-settings
 
 # 删除自带软件包
-rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,dns2tcp,microsocks,pdnsd-alt,sing-box,v2ray-geodata,xray-core}
+rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,dns2tcp,microsocks,pdnsd-alt,sing-box,tcping,v2ray-geodata,xray-core}
 
 # 添加 Passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
