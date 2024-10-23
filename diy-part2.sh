@@ -31,6 +31,8 @@ cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-s
 
 # 删除自带软件包
 rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,dns2tcp,microsocks,pdnsd-alt,sing-box,tcping,v2ray-geodata,xray-core}
+# 删除自带插件
+rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 
 # 添加 Passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
@@ -46,6 +48,3 @@ rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
 # 添加主题
 git clone https://github.com/jerrykuku/luci-theme-argon.git -b 18.06 ./package/luci-theme-argon
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/rideshare_feature_compress.jpg -O ./package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-
-# 删除自带插件
-rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
