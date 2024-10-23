@@ -46,3 +46,6 @@ rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
 # 添加主题
 git clone https://github.com/jerrykuku/luci-theme-argon.git -b 18.06 ./package/luci-theme-argon
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/rideshare_feature_compress.jpg -O ./package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+
+# 删除自带插件
+rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
