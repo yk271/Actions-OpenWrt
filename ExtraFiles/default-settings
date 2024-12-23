@@ -7,6 +7,10 @@ uci set upnpd.config.download='102400'
 uci set upnpd.config.upload='5120'
 uci commit upnpd
 
+uci delete ddns.myddns_ipv4
+uci delete ddns.myddns_ipv6
+uci commit ddns
+
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'
 uci set dhcp.@dnsmasq[0].rebind_protection='0'
 uci delete dhcp.lan.dhcpv6
