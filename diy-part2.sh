@@ -30,7 +30,7 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/def
 cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-settings
 
 # 删除自带软件包
-rm -rf ./feeds/packages/net/{brook,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,pdnsd-alt,shadowsocksr-libev,shadowsocks-rust,simple-obfs,sing-box,ssocks,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-core,v2ray-geodata,v2ray-geoview,v2ray-plugin,xray-core,xray-plugin}
+rm -rf ./feeds/packages/net/{brook,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,pdnsd-alt,shadowsocksr-libev,shadowsocks-libev,shadowsocks-rust,simple-obfs,sing-box,ssocks,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-core,v2ray-geodata,v2ray-geoview,v2ray-plugin,xray-core,xray-plugin}
 # 删除自带插件
 rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 
