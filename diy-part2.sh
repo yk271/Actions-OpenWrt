@@ -23,8 +23,14 @@ sed -i "s/DISTRIB_REVISION='R[0-9.]*'/DISTRIB_REVISION='R${revision}'/" ./packag
 # 删除默认密码
 sed -i '/\/etc\/shadow/{/root/d;}' ./package/lean/default-settings/files/zzz-default-settings
 
+# 合并配置
+sed -i '/REDIRECT --to-ports 53/d' ./package/lean/default-settings/files/zzz-default-settings
+sed -i '/exit 0$/d' ./package/lean/default-settings/files/zzz-default-settings
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/default-settings -O ./my-default-settings
+cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-settings
+
 # 删除自带软件包
-rm -rf ./feeds/packages/net/{brook,chinadns-ng,dns2socks,dns2tcp,gn,hysteria,ipt2socks,microsocks,naiveproxy,pdnsd-alt,shadowsocksr-libev,shadowsocks-rust,simple-obfs,sing-box,ssocks,tcping,trojan,trojan-go,trojan-plus,tuic-client,v2ray-core,v2ray-geodata,v2ray-geoview,v2ray-plugin,xray-core,xray-plugin}
+rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,dns2tcp,geoview,gn,hysteria,ipt2socks,microsocks,naiveproxy,pdnsd-alt,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,sing-box,ssocks,tcping,trojan-plus,trojan,tuic-client,v2ray-core,v2ray-geodata,v2ray-plugin,xray-core,xray-plugin}
 # 删除自带插件
 rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 
@@ -42,3 +48,6 @@ rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
 # 添加主题
 git clone https://github.com/jerrykuku/luci-theme-argon.git ./package/luci-theme-argon
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/rideshare_feature_compress.jpg -O ./package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
+
+# DDNS 默认配置修改
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/ddns_default_config -O ./feeds/packages/net/ddns-scripts/files/etc/config/ddns
