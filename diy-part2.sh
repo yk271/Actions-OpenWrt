@@ -41,6 +41,10 @@ wget https://raw.githubusercontent.com/yk271/proxy-rule/main/direct_host.txt -O 
 wget https://raw.githubusercontent.com/yk271/proxy-rule/main/proxy_host.txt -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
 wget https://raw.githubusercontent.com/yk271/proxy-rule/main/block_host.txt -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
 wget https://raw.githubusercontent.com/yk271/proxy-rule/main/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
+# Passwall Sing-Box 版本临时回退
+cd package/passwall_packages/sing-box
+git checkout 2ba440cdd7799ce554b355988eda974b94d2f6d7
+cd -
 
 # 删除自带的 Argon 主题
 rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
