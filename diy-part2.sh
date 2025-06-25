@@ -24,7 +24,7 @@ sed -i "s/DISTRIB_REVISION='R[0-9.]*'/DISTRIB_REVISION='R${revision}'/" ./packag
 sed -i '/\/etc\/shadow/{/root/d;}' ./package/lean/default-settings/files/zzz-default-settings
 
 # 合并配置
-sed -i '/REDIRECT --to-ports 53/d' ./package/lean/default-settings/files/zzz-default-settings
+#sed -i '/REDIRECT --to-ports 53/d' ./package/lean/default-settings/files/zzz-default-settings
 sed -i '/exit 0$/d' ./package/lean/default-settings/files/zzz-default-settings
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/default-settings -O ./my-default-settings
 cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-settings
