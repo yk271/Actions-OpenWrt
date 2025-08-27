@@ -2,8 +2,9 @@
 uci delete network.wan6
 uci commit network
 
+# 私有设备网卡自动化配置
 TARGET_UUID="87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc"
-CURRENT_UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null)
+CURRENT_UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null | tr 'A-Z' 'a-z')
 if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
   uci set network.lan.ifname='eth0 eth1'
   uci set network.wan.ifname='eth2'
