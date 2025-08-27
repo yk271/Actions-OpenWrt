@@ -9,6 +9,3 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-
-# 回退源码
-git checkout 77e40af0829a6567428b1015eee64c28b8ea7445
