@@ -2,6 +2,14 @@
 uci delete network.wan6
 uci commit network
 
+TARGET_UUID="87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc"
+CURRENT_UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null)
+if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
+  uci set network.lan.ifname='eth0 eth1'
+  uci set network.wan.ifname='eth2'
+  uci commit network
+fi
+
 uci set upnpd.config.enabled='1'
 uci set upnpd.config.download='102400'
 uci set upnpd.config.upload='5120'
