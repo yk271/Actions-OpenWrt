@@ -37,10 +37,10 @@ rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 # 添加 Passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b main ./package/passwall_luci
-wget https://raw.githubusercontent.com/yk271/proxy-rule/main/direct_host.txt -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
-wget https://raw.githubusercontent.com/yk271/proxy-rule/main/proxy_host.txt -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
-wget https://raw.githubusercontent.com/yk271/proxy-rule/main/block_host.txt -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
-wget https://raw.githubusercontent.com/yk271/proxy-rule/main/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/direct_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/proxy_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/block_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 # Passwall Sing-Box 版本临时回退
 # cd package/passwall_packages/sing-box
 # git checkout 2ba440cdd7799ce554b355988eda974b94d2f6d7
