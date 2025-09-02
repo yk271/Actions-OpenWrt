@@ -98,6 +98,7 @@ config nodes 'myshunt'
 	option AIGC '_default'
 	option Streaming '_default'
 	option Proxy '_default'
+	option Apple '_direct'
 	option Direct '_direct'
 	option default_node '_direct'
 	option domainStrategy 'IPOnDemand'
@@ -244,6 +245,13 @@ config shunt_rules 'Proxy'
 2001:4860:4860::8844
 2606:4700:4700::1111
 2606:4700:4700::1001'
+
+config shunt_rules 'Apple'
+	option remarks 'Apple'
+	option ip_list '17.0.0.0/8
+2403:300::/32
+2620:149::/32
+2a01:b740::/32'
 
 config shunt_rules 'Direct'
 	option remarks 'Direct'
