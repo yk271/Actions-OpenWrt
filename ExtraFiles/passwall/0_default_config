@@ -221,6 +221,7 @@ geosite:tiktok'
 
 config shunt_rules 'Apple'
 	option remarks 'Apple'
+	option domain_list 'geosite:apple'
 	option ip_list '17.0.0.0/8
 2403:300::/32
 2620:149::/32
