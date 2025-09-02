@@ -22,6 +22,7 @@ o:value("https://fastly.jsdelivr.net/gh/YW5vbnltb3Vz/domain-list-community@relea
 o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt", translate("Loyalsoldier/v2ray-rules-dat"))
 o:value("https://fastly.jsdelivr.net/gh/Loukky/gfwlist-by-loukky/gfwlist.txt", translate("Loukky/gfwlist-by-loukky"))
 o:value("https://fastly.jsdelivr.net/gh/gfwlist/gfwlist/gfwlist.txt", translate("gfwlist/gfwlist"))
+o:value("https://fastly.jsdelivr.net/gh/Charles3579/proxy-rules@release/proxy-domain.txt", translate("Charles3579/proxy-rules/proxy-domain"))
 o.default = "https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt"
 
 ----chnroute  URL
@@ -51,6 +52,7 @@ o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/chi
 o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/apple-cn.txt", translate("Loyalsoldier/apple-cn"))
 o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/google-cn.txt", translate("Loyalsoldier/google-cn"))
 o:value("https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain.txt", translate("ios_rule_script/ChinaMax_Domain"))
+o:value("https://fastly.jsdelivr.net/gh/Charles3579/proxy-rules@release/direct-domain.txt", translate("Charles3579/proxy-rules/direct-domain"))
 
 if has_xray or has_singbox then
 	o = s:option(ListValue, "geoip_url", translate("GeoIP Update URL"))
