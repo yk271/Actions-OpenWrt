@@ -97,8 +97,8 @@ config nodes 'myshunt'
 	option ProxyGame '_default'
 	option AIGC '_default'
 	option Streaming '_default'
-	option Apple '_direct'
 	option Proxy '_default'
+	option VIP '_direct'
 	option Direct '_direct'
 	option default_node '_direct'
 	option domainStrategy 'IPOnDemand'
@@ -219,17 +219,9 @@ geosite:viu
 geosite:spotify
 geosite:tiktok'
 
-config shunt_rules 'Apple'
-	option remarks 'Apple'
-	option domain_list 'geosite:apple'
-	option ip_list '17.0.0.0/8
-2403:300::/32
-2620:149::/32
-2a01:b740::/32'
-
 config shunt_rules 'Proxy'
 	option remarks 'Proxy'
-	option domain_list 'geosite:geolocation-!cn'
+	option domain_list 'geosite:gfw'
 	option ip_list '149.154.160.0/20
 91.108.4.0/22
 91.108.56.0/24
@@ -253,6 +245,15 @@ config shunt_rules 'Proxy'
 2001:4860:4860::8844
 2606:4700:4700::1111
 2606:4700:4700::1001'
+
+config shunt_rules 'VIP'
+	option remarks 'VIP'
+	option domain_list 'geosite:apple
+geosite:microsoft'
+	option ip_list '17.0.0.0/8
+2403:300::/32
+2620:149::/32
+2a01:b740::/32'
 
 config shunt_rules 'Direct'
 	option remarks 'Direct'
