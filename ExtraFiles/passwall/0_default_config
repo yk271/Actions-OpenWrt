@@ -86,7 +86,7 @@ config global_app
 
 config global_subscribe
 	option filter_keyword_mode '0'
-	option ss_type 'shadowsocks-rust'
+	option ss_type 'xray'
 	option trojan_type 'xray'
 
 config nodes 'myshunt'
