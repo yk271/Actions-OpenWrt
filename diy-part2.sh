@@ -40,6 +40,8 @@ git clone https://github.com/xiaorouji/openwrt-passwall.git -b main ./package/pa
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/direct_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/proxy_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/block_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/chnlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/chnlist
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/rule.lua -O ./package/passwall_luci/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
 # Passwall Sing-Box 版本临时回退
