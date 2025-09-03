@@ -88,6 +88,8 @@ config global_subscribe
 	option filter_keyword_mode '0'
 	option ss_type 'xray'
 	option trojan_type 'xray'
+	option vmess_type 'xray'
+	option vless_type 'xray'
 
 config nodes 'myshunt'
 	option remarks '分流总节点'
