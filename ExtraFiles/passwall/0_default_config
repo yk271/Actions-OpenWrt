@@ -205,6 +205,7 @@ config shunt_rules 'AIGC'
 	option remarks 'AIGC'
 	option domain_list 'geosite:category-ai-!cn
 geosite:apple-intelligence
+geosite:icloudprivaterelay
 geosite:bing'
 
 config shunt_rules 'Streaming'
