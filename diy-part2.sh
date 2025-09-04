@@ -17,7 +17,7 @@
 sed -i 's/${g}.*/${a}${b}${c}${d}${e}${f}${hydrid}/g' ./package/lean/autocore/files/x86/autocore
 
 # 修改版本号
-revision='25.9.3'
+revision=$(date +'%y.%-m.%-d')
 sed -i "s/DISTRIB_REVISION='R[0-9.]*'/DISTRIB_REVISION='R${revision}'/" ./package/lean/default-settings/files/zzz-default-settings
 
 # 删除默认密码
