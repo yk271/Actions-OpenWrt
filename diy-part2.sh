@@ -43,11 +43,17 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/pas
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/chnlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/chnlist
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/rule.lua -O ./package/passwall_luci/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
 # Passwall Sing-Box 版本临时回退
 # cd package/passwall_packages/sing-box
 # git checkout 2ba440cdd7799ce554b355988eda974b94d2f6d7
 # cd -
+# 补丁
+cd package/passwall_luci
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/add_rule.patch ./patches/add_rule.patch
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/delete_some_excluded_domains.patch ./patches/delete_some_excluded_domains.patch
+git status
+git am patches/add_rule.patch
+git am patches/delete_some_excluded_domains.patch
 
 # 删除自带的 Argon 主题
 rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
