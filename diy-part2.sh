@@ -54,9 +54,8 @@ cd package/passwall_luci
 mkdir -p patches
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
-git status
-git am patches/add_rule.patch
-git am patches/delete_some_excluded_domains.patch
+patch -p1 < patches/add_rule.patch
+patch -p1 < patches/delete_some_excluded_domains.patch
 cd -
 
 # 删除自带的 Argon 主题
