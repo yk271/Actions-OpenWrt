@@ -51,6 +51,8 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/pas
 
 # 补丁
 cd package/passwall_luci
+mkdir -p patches
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
 git status
