@@ -1,6 +1,6 @@
-From 39fb4e7a499588ffe3ab2636f2e1ddd3d4d83b25 Mon Sep 17 00:00:00 2001
+From b48bc88f7e5ec3edaec33459442bee4b9f05c1ef Mon Sep 17 00:00:00 2001
 From: yk271 <29210205+yk271@users.noreply.github.com>
-Date: Tue, 2 Sep 2025 17:16:10 +0800
+Date: Sun, 14 Sep 2025 11:04:10 +0800
 Subject: [PATCH] luci: add rules
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH] luci: add rules
  1 file changed, 2 insertions(+)
 
 diff --git a/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua b/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
-index 2f30dffc7d..75ef8ada43 100644
+index 39a105abac..03dedfbfa5 100644
 --- a/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
 +++ b/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
 @@ -22,6 +22,7 @@ o:value("https://fastly.jsdelivr.net/gh/YW5vbnltb3Vz/domain-list-community@relea
