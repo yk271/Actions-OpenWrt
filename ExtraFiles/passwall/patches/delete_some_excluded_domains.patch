@@ -1,6 +1,6 @@
-From a52e1a723788ec09c8519175d19018c532133bcb Mon Sep 17 00:00:00 2001
+From 7ad6a5db67290a5f37825fe56dcb081ece48cf0d Mon Sep 17 00:00:00 2001
 From: yk271 <29210205+yk271@users.noreply.github.com>
-Date: Fri, 5 Sep 2025 02:49:03 +0800
+Date: Sun, 14 Sep 2025 11:04:49 +0800
 Subject: [PATCH] luci: delete some excluded domains
 
 ---
