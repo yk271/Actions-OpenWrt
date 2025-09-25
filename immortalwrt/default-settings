@@ -57,4 +57,12 @@ uci set upnpd.config.upload='5120'
 # 应用更改
 uci commit upnpd
 
+# 网络诊断
+if [ "$(uci -q get luci.diag.ping)" = "openwrt.org" ] || [ "$(uci -q get luci.diag.ping)" = "immortalwrt.org" ]; then
+	uci set luci.diag.dns='www.qq.com'
+	uci set luci.diag.ping='www.qq.com'
+	uci set luci.diag.route='www.qq.com'
+	uci commit luci
+fi
+
 exit 0
