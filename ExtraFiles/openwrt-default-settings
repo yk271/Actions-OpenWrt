@@ -23,6 +23,12 @@ uci del firewall.@defaults[0].flow_offloading_hw
 # 应用更改
 uci commit firewall
 
+# 删除 LAN V6 DHCP
+uci del dhcp.lan.ra
+uci del dhcp.lan.ra_slaac
+uci del dhcp.lan.max_preferred_lifetime
+uci del dhcp.lan.max_valid_lifetime
+uci del dhcp.lan.dhcpv6
 # DHCP/DNS 配置
 uci del dhcp.@dnsmasq[0].nonwildcard
 uci del dhcp.@dnsmasq[0].boguspriv
@@ -32,6 +38,7 @@ uci del dhcp.@dnsmasq[0].filter_a
 uci del dhcp.@dnsmasq[0].rebind_localhost
 uci set dhcp.@dnsmasq[0].rebind_protection='0'
 uci set dhcp.@dnsmasq[0].filter_aaaa='1'
+# 应用更改
 uci commit dhcp
 
 # UPnP 配置
@@ -45,4 +52,5 @@ uci del upnpd.config.log_output
 uci set upnpd.config.enabled='1'
 uci set upnpd.config.download='102400'
 uci set upnpd.config.upload='5120'
+# 应用更改
 uci commit upnpd
