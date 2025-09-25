@@ -13,3 +13,12 @@ if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
   uci commit network
   /etc/init.d/network restart
 fi
+
+# SYN-flood 防御参数变更
+uci del firewall.@defaults[0].syn_flood
+uci set firewall.@defaults[0].synflood_protect='1'
+# x86 仅支持软件流量卸载
+uci set firewall.@defaults[0].flow_offloading='1'
+uci del firewall.@defaults[0].flow_offloading_hw
+# 应用更改
+uci commit firewall
