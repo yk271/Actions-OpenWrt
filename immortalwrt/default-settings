@@ -9,10 +9,12 @@ if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
   uci add_list network.@device[0].ports='eth1'
   # 配置 wan 网口
   uci set network.wan.device='eth2'
-  # 应用更改
-  uci commit network
-  /etc/init.d/network restart
 fi
+
+# 删除 WAN6
+uci del network.wan6
+uci commit network
+/etc/init.d/network restart
 
 # SYN-flood 防御参数变更
 uci del firewall.@defaults[0].syn_flood
