@@ -30,7 +30,7 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 
-# 补丁
+# Passwall 补丁
 cd package/passwall_luci
 mkdir -p patches
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
@@ -39,6 +39,14 @@ patch -p1 < patches/add_rule.patch
 patch -p1 < patches/delete_some_excluded_domains.patch
 cd -
 
+# unzip
+rm -rf feeds/packages/utils/unzip
+git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
+
 # golang 1.25
 rm -rf feeds/packages/lang/golang
 git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+
+# curl
+rm -rf feeds/packages/net/curl
+git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
