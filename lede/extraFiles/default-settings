@@ -1,0 +1,32 @@
+
+uci delete network.wan6
+uci commit network
+
+# 私有设备网卡自动化配置
+TARGET_UUID="87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc"
+CURRENT_UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null | tr 'A-Z' 'a-z')
+if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
+  uci set network.lan.ifname='eth0 eth1'
+  uci set network.wan.ifname='eth2'
+  uci commit network
+fi
+
+uci set upnpd.config.enabled='1'
+uci set upnpd.config.download='102400'
+uci set upnpd.config.upload='5120'
+uci commit upnpd
+
+uci set dhcp.@dnsmasq[0].filter_aaaa='1'
+uci set dhcp.@dnsmasq[0].rebind_protection='0'
+uci delete dhcp.lan.dhcpv6
+uci delete dhcp.lan.ndp
+uci delete dhcp.lan.ra
+uci delete dhcp.lan.ra_management
+uci delete dhcp.lan.ra_slaac
+uci delete dhcp.lan.ra_flags
+uci commit dhcp
+
+uci set firewall.@defaults[0].fullcone='1'
+uci commit firewall
+
+exit 0
