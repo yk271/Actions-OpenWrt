@@ -38,3 +38,7 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 patch -p1 < patches/add_rule.patch
 patch -p1 < patches/delete_some_excluded_domains.patch
 cd -
+
+# golang 1.25
+rm -rf feeds/packages/lang/golang
+git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
