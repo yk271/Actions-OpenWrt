@@ -26,7 +26,7 @@ sed -i '/\/etc\/shadow/{/root/d;}' ./package/lean/default-settings/files/zzz-def
 # 合并配置
 #sed -i '/REDIRECT --to-ports 53/d' ./package/lean/default-settings/files/zzz-default-settings
 sed -i '/exit 0$/d' ./package/lean/default-settings/files/zzz-default-settings
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/default-settings -O ./my-default-settings
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/lede/extraFiles/default-settings -O ./my-default-settings
 cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-settings
 
 # 删除自带软件包
@@ -37,12 +37,12 @@ rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 # 添加 Passwall
 git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b main ./package/passwall_luci
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/direct_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/proxy_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/block_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/chnlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/chnlist
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/direct_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/proxy_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/block_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/chnlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/chnlist
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 
 # Passwall Sing-Box 版本临时回退
 # cd package/passwall_packages/sing-box
@@ -52,8 +52,8 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/pas
 # 补丁
 cd package/passwall_luci
 mkdir -p patches
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
 patch -p1 < patches/add_rule.patch
 patch -p1 < patches/delete_some_excluded_domains.patch
 cd -
@@ -66,4 +66,4 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git -b 18.06 ./package/l
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/main/ExtraFiles/rideshare_feature_compress.jpg -O ./package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
 
 # DDNS 默认配置修改
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/ExtraFiles/ddns_default_config -O ./feeds/packages/net/ddns-scripts/files/etc/config/ddns
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/lede/extraFiles/ddns_default_config -O ./feeds/packages/net/ddns-scripts/files/etc/config/ddns
