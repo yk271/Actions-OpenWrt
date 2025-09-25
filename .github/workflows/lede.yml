@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: OpenWrt Builder
+name: lede
 
 on:
   repository_dispatch:
