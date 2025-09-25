@@ -64,6 +64,3 @@ rm -rf ./feeds/luci/themes/{luci-theme-argon,luci-theme-argon-mod}
 # 添加主题
 git clone https://github.com/jerrykuku/luci-theme-argon.git -b 18.06 ./package/luci-theme-argon
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/theme-argon/rideshare_feature_compress.jpg -O ./package/luci-theme-argon/htdocs/luci-static/argon/img/bg1.jpg
-
-# DDNS 默认配置修改
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/lede/extraFiles/ddns_default_config -O ./feeds/packages/net/ddns-scripts/files/etc/config/ddns
