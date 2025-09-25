@@ -26,7 +26,7 @@ sed -i '/\/etc\/shadow/{/root/d;}' ./package/lean/default-settings/files/zzz-def
 # 合并配置
 #sed -i '/REDIRECT --to-ports 53/d' ./package/lean/default-settings/files/zzz-default-settings
 sed -i '/exit 0$/d' ./package/lean/default-settings/files/zzz-default-settings
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/lede/extraFiles/default-settings -O ./my-default-settings
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/lede/default-settings -O ./my-default-settings
 cat ./my-default-settings >> ./package/lean/default-settings/files/zzz-default-settings
 
 # 删除自带软件包
