@@ -54,3 +54,5 @@ uci set upnpd.config.download='102400'
 uci set upnpd.config.upload='5120'
 # 应用更改
 uci commit upnpd
+
+exit 0
