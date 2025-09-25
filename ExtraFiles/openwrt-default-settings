@@ -22,3 +22,16 @@ uci set firewall.@defaults[0].flow_offloading='1'
 uci del firewall.@defaults[0].flow_offloading_hw
 # 应用更改
 uci commit firewall
+
+# UPnP 配置
+uci del upnpd.config.enable_upnp
+uci del upnpd.config.enable_natpmp
+uci del upnpd.config.use_stun
+uci del upnpd.config.stun_host
+uci del upnpd.config.stun_port
+uci del upnpd.config.secure_mode
+uci del upnpd.config.log_output
+uci set upnpd.config.enabled='1'
+uci set upnpd.config.download='102400'
+uci set upnpd.config.upload='5120'
+uci commit upnpd
