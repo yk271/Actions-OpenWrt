@@ -16,9 +16,9 @@ uci del network.wan6
 uci commit network
 /etc/init.d/network restart
 
-uci del firewall.@defaults[0].fullcone6
 uci del firewall.@defaults[0].syn_flood
 uci set firewall.@defaults[0].synflood_protect='1'
+uci del firewall.@defaults[0].fullcone6
 # x86 仅支持软件流量卸载
 uci set firewall.@defaults[0].flow_offloading='1'
 uci del firewall.@defaults[0].flow_offloading_hw
