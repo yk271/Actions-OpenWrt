@@ -11,18 +11,6 @@ if [ "$CURRENT_UUID" = "87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc" ]; then
   uci set network.wan.device='eth2'
 fi
 
-if [ "$CURRENT_UUID" = "03000200-0400-0500-0006-000700080009" ]; then
-  # 修改 lan IP
-  uci set network.lan.ipaddr='192.168.77.1'
-  # 配置 br-lan 网口
-  uci del network.@device[0].ports
-  uci add_list network.@device[0].ports='eth0'
-  uci add_list network.@device[0].ports='eth1'
-  uci add_list network.@device[0].ports='eth2'
-  # 配置 wan 网口
-  uci set network.wan.device='eth3'
-fi
-
 # 删除 WAN6
 uci del network.wan6
 # 强制 DHCP
