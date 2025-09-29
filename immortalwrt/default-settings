@@ -62,11 +62,6 @@ uci set upnpd.config.upload='5120'
 # 应用更改
 uci commit upnpd
 
-# SSH 配置优化
-uci del dropbear.main.enable
-uci del dropbear.main.RootPasswordAuth
-uci commit dropbear
-
 # 网络诊断
 if [ "$(uci -q get luci.diag.ping)" = "openwrt.org" ] || [ "$(uci -q get luci.diag.ping)" = "immortalwrt.org" ]; then
 	uci set luci.diag.dns='www.qq.com'
