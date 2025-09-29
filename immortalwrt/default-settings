@@ -1,8 +1,8 @@
 
-# 私有设备网卡自动化配置
-TARGET_UUID="87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc"
+# 特定设备自动化配置网卡
 CURRENT_UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null | tr 'A-Z' 'a-z')
-if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
+
+if [ "$CURRENT_UUID" = "87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc" ]; then
   # 配置 br-lan 网口
   uci del network.@device[0].ports
   uci add_list network.@device[0].ports='eth0'
@@ -11,8 +11,23 @@ if [ "$CURRENT_UUID" = "$TARGET_UUID" ]; then
   uci set network.wan.device='eth2'
 fi
 
+if [ "$CURRENT_UUID" = "03000200-0400-0500-0006-000700080009" ]; then
+  # 修改 lan IP
+  uci set network.lan.ipaddr='192.168.77.1'
+  # 配置 br-lan 网口
+  uci del network.@device[0].ports
+  uci add_list network.@device[0].ports='eth0'
+  uci add_list network.@device[0].ports='eth1'
+  uci add_list network.@device[0].ports='eth2'
+  # 配置 wan 网口
+  uci set network.wan.device='eth3'
+fi
+
 # 删除 WAN6
 uci del network.wan6
+# 强制 DHCP
+uci set dhcp.lan.force='1'
+# 应用更改
 uci commit network
 /etc/init.d/network restart
 
