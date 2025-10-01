@@ -35,8 +35,10 @@ cd package/passwall_luci
 mkdir -p patches
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/adjust_some_xray_configurations.patch -O ./patches/adjust_some_xray_configurations.patch
 patch -p1 < patches/add_rule.patch
 patch -p1 < patches/delete_some_excluded_domains.patch
+patch -p1 < patches/adjust_some_xray_configurations.patch
 cd -
 
 # unzip
