@@ -38,5 +38,3 @@ index f25b2c0a5e..1010d802f5 100644
 +o.default = "1"
 +o.placeholder = "1"
  o.description = translate("The load balancer selects the optimal number of nodes, and traffic is randomly distributed among them.")
- 
- 
