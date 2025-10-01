@@ -1,0 +1,42 @@
+From 771a635893fb722608407809cbfca415955c5cc0 Mon Sep 17 00:00:00 2001
+From: yk271 <29210205+yk271@users.noreply.github.com>
+Date: Wed, 1 Oct 2025 11:26:18 +0800
+Subject: [PATCH] luci: adjust some xray configurations
+
+---
+ .../luasrc/model/cbi/passwall/client/type/ray.lua         | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua b/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua
+index f25b2c0a5e..1010d802f5 100644
+--- a/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua
++++ b/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua
+@@ -128,7 +128,7 @@ o:value("random")
+ o:value("roundRobin")
+ o:value("leastPing")
+ o:value("leastLoad")
+-o.default = "random"
++o.default = "leastLoad"
+ 
+ -- Fallback Node
+ o = s:option(ListValue, _n("fallback_node"), translate("Fallback Node"))
+@@ -161,7 +161,7 @@ o:value("https://www.google.com/generate_204", "Google")
+ o:value("https://www.youtube.com/generate_204", "YouTube")
+ o:value("https://connect.rom.miui.com/generate_204", "MIUI (CN)")
+ o:value("https://connectivitycheck.platform.hicloud.com/generate_204", "HiCloud (CN)")
+-o.default = "https://www.google.com/generate_204"
++o.default = "https://www.gstatic.com/generate_204"
+ o.description = translate("The URL used to detect the connection status.")
+ 
+ -- 探测间隔
+@@ -176,8 +176,8 @@ o.description = translate("The interval between initiating probes.") .. "<br>" .
+ o = s:option(Value, _n("expected"), translate("Preferred Node Count"))
+ o:depends({ [_n("balancingStrategy")] = "leastLoad" })
+ o.datatype = "uinteger"
+-o.default = "2"
+-o.placeholder = "2"
++o.default = "1"
++o.placeholder = "1"
+ o.description = translate("The load balancer selects the optimal number of nodes, and traffic is randomly distributed among them.")
+ 
+ 
