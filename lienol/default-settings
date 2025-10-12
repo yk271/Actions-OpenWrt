@@ -1,0 +1,73 @@
+
+# 特定设备自动化配置网卡
+CURRENT_UUID=$(cat /sys/class/dmi/id/product_uuid 2>/dev/null | tr 'A-Z' 'a-z')
+
+if [ "$CURRENT_UUID" = "87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc" ]; then
+  # 配置 br-lan 网口
+  uci del network.@device[0].ports
+  uci add_list network.@device[0].ports='eth0'
+  uci add_list network.@device[0].ports='eth1'
+  # 配置 wan 网口
+  uci set network.wan.device='eth2'
+fi
+
+
+# 删除 WAN6
+uci del network.wan6
+# 应用更改
+uci commit network
+/etc/init.d/network restart
+
+
+# 防火墙调整
+uci del firewall.@defaults[0].syn_flood
+uci del firewall.@defaults[0].flow_offloading_hw
+uci set firewall.@defaults[0].synflood_protect='1'
+# 应用更改
+uci commit firewall
+/etc/init.d/firewall restart
+
+
+# 唯一 DHCP 服务器
+uci set dhcp.lan.force='1'
+# 删除 LAN V6 DHCP
+uci del dhcp.lan.ra
+uci del dhcp.lan.ra_flags
+uci del dhcp.lan.dns_service
+# DHCP/DNS 配置
+uci del dhcp.@dnsmasq[0].rebind_localhost
+uci del dhcp.@dnsmasq[0].nonwildcard
+uci del dhcp.@dnsmasq[0].boguspriv
+uci del dhcp.@dnsmasq[0].filterwin2k
+uci del dhcp.@dnsmasq[0].filter_a
+uci del dhcp.@dnsmasq[0].nonegcache
+uci set dhcp.@dnsmasq[0].rebind_protection='0'
+uci set dhcp.@dnsmasq[0].filter_aaaa='1'
+# 应用更改
+uci commit dhcp
+/etc/init.d/dnsmasq restart
+/etc/init.d/network restart
+
+
+# UPnP 配置
+uci del upnpd.config.enable_upnp
+uci del upnpd.config.enable_natpmp
+uci del upnpd.config.secure_mode
+uci del upnpd.config.log_output
+uci set upnpd.config.enabled='1'
+uci set upnpd.config.download='102400'
+uci set upnpd.config.upload='5120'
+# 应用更改
+uci commit upnpd
+
+
+# 网络诊断
+if [ "$(uci -q get luci.diag.ping)" = "openwrt.org" ] || [ "$(uci -q get luci.diag.ping)" = "immortalwrt.org" ]; then
+	uci set luci.diag.dns='www.qq.com'
+	uci set luci.diag.ping='www.qq.com'
+	uci set luci.diag.route='www.qq.com'
+	uci commit luci
+fi
+
+
+exit 0
