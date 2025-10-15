@@ -61,6 +61,15 @@ uci set upnpd.config.upload='5120'
 uci commit upnpd
 
 
+# NTP 服务器
+uci del system.ntp.server
+uci add_list system.ntp.server="ntp.tencent.com"
+uci add_list system.ntp.server="ntp1.aliyun.com"
+uci add_list system.ntp.server="ntp.ntsc.ac.cn"
+uci add_list system.ntp.server="cn.ntp.org.cn"
+commit system
+
+
 # 网络诊断
 if [ "$(uci -q get luci.diag.ping)" = "openwrt.org" ] || [ "$(uci -q get luci.diag.ping)" = "immortalwrt.org" ]; then
 	uci set luci.diag.dns='www.qq.com'
