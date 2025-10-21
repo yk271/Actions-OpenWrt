@@ -1,6 +1,6 @@
-From 19403c38cbb7d0fcf52f65a5a451e22e26f216d0 Mon Sep 17 00:00:00 2001
+From e0f53b099b7ea55d2e39731ad1853668d79ebbf1 Mon Sep 17 00:00:00 2001
 From: yk271 <29210205+yk271@users.noreply.github.com>
-Date: Fri, 10 Oct 2025 16:49:39 +0800
+Date: Tue, 21 Oct 2025 21:21:25 +0800
 Subject: [PATCH] luci: adjust some xray configurations
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH] luci: adjust some xray configurations
  1 file changed, 5 insertions(+), 4 deletions(-)
 
 diff --git a/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua b/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua
-index f25b2c0a5e..c882323399 100644
+index 7b0231afda..a065252e0e 100644
 --- a/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua
 +++ b/luci-app-passwall/luasrc/model/cbi/passwall/client/type/ray.lua
 @@ -128,7 +128,7 @@ o:value("random")
