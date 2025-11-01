@@ -1,6 +1,6 @@
-From e0f53b099b7ea55d2e39731ad1853668d79ebbf1 Mon Sep 17 00:00:00 2001
+From fbcc507372c179e47e712f3840d1141b5629f4df Mon Sep 17 00:00:00 2001
 From: yk271 <29210205+yk271@users.noreply.github.com>
-Date: Tue, 21 Oct 2025 21:21:25 +0800
+Date: Sun, 2 Nov 2025 02:09:26 +0800
 Subject: [PATCH] luci: adjust some xray configurations
 
 ---

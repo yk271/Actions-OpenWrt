@@ -1,6 +1,6 @@
-From fee6afdbd605c1ff45fc0d4e01f94d59807d19db Mon Sep 17 00:00:00 2001
+From 9e3b7b8728d9d6dcc8b1e8c811164659eb2e8c34 Mon Sep 17 00:00:00 2001
 From: yk271 <29210205+yk271@users.noreply.github.com>
-Date: Wed, 1 Oct 2025 11:20:32 +0800
+Date: Sun, 2 Nov 2025 02:07:03 +0800
 Subject: [PATCH] luci: add rules
 
 ---
@@ -8,7 +8,7 @@ Subject: [PATCH] luci: add rules
  1 file changed, 2 insertions(+)
 
 diff --git a/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua b/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
-index 39a105abac..03dedfbfa5 100644
+index 433ed33569..77ce7b93a1 100644
 --- a/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
 +++ b/luci-app-passwall/luasrc/model/cbi/passwall/client/rule.lua
 @@ -22,6 +22,7 @@ o:value("https://fastly.jsdelivr.net/gh/YW5vbnltb3Vz/domain-list-community@relea
@@ -19,7 +19,7 @@ index 39a105abac..03dedfbfa5 100644
  o.default = "https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/gfw.txt"
  
  ----chnroute  URL
-@@ -51,6 +52,7 @@ o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/chi
+@@ -50,6 +51,7 @@ o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/chi
  o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/apple-cn.txt", translate("Loyalsoldier/apple-cn"))
  o:value("https://fastly.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/google-cn.txt", translate("Loyalsoldier/google-cn"))
  o:value("https://fastly.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/ChinaMax/ChinaMax_Domain.txt", translate("ios_rule_script/ChinaMax_Domain"))
