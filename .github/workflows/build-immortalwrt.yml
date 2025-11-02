@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt
+  REPO_URL: https://github.com/yk271/immortalwrt
   REPO_BRANCH: openwrt-24.10
   FILES: immortalwrt/files
   FEEDS_CONF: immortalwrt/feeds.conf.default
