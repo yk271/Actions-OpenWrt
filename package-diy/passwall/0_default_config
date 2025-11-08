@@ -5,7 +5,7 @@ config global
 	option tcp_node_socks_port '1070'
 	option filter_proxy_ipv6 '1'
 	option dns_shunt 'chinadns-ng'
-	option dns_mode 'tcp'
+	option dns_mode 'xray'
 	option remote_dns '8.8.8.8'
 	list smartdns_remote_dns 'https://1.1.1.1/dns-query'
 	option use_default_dns 'direct'
@@ -26,6 +26,11 @@ config global
 	option loglevel 'error'
 	option trojan_loglevel '4'
 	option log_chinadns_ng '0'
+	option tcp_node 'myshunt'
+	option udp_node 'tcp'
+	option v2ray_dns_mode 'tcp'
+	option force_https_soa '1'
+	option dnsmasq_dns_redirect '1'
 
 config global_haproxy
 	option balancing_enable '0'
@@ -42,7 +47,7 @@ config global_forwarding
 	option tcp_redir_ports '1:65535'
 	option udp_redir_ports '1:65535'
 	option accept_icmp '0'
-	option use_nft '0'
+	option use_nft '1'
 	option tcp_proxy_way 'tproxy'
 	option ipv6_tproxy '0'
 
@@ -90,6 +95,7 @@ config global_subscribe
 	option trojan_type 'xray'
 	option vmess_type 'xray'
 	option vless_type 'xray'
+	option hysteria2_type 'sing-box'
 
 config nodes 'myshunt'
 	option remarks '分流总节点'
