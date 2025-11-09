@@ -35,12 +35,14 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 # Passwall 补丁
 cd package/passwall_luci
 mkdir -p patches
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/adjust_some_xray_configurations.patch -O ./patches/adjust_some_xray_configurations.patch
+wget https://github.com/yk271/openwrt-passwall/commit/9e3b7b8728d9d6dcc8b1e8c811164659eb2e8c34.patch -O ./patches/add_rule.patch
+wget https://github.com/yk271/openwrt-passwall/commit/2a561ea0d14d4bd3e1547c6fedc3db56ef8a48a2.patch -O ./patches/delete_some_excluded_domains.patch
+wget https://github.com/yk271/openwrt-passwall/commit/fbcc507372c179e47e712f3840d1141b5629f4df.patch -O ./patches/adjust_some_xray_configurations.patch
+wget https://github.com/yk271/openwrt-passwall/commit/577c39525469c1726cc51d445f3a6d80b54991d1.patch -O ./patches/optimize_nftables.patch
 patch -p1 < patches/add_rule.patch
 patch -p1 < patches/delete_some_excluded_domains.patch
 patch -p1 < patches/adjust_some_xray_configurations.patch
+patch -p1 < patches/optimize_nftables.patch
 cd -
 
 # unzip
