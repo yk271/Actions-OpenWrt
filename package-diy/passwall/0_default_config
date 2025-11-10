@@ -31,6 +31,7 @@ config global
 	option v2ray_dns_mode 'tcp'
 	option force_https_soa '1'
 	option dnsmasq_dns_redirect '1'
+	option flush_set_on_reboot '1'
 
 config global_haproxy
 	option balancing_enable '0'
