@@ -21,8 +21,7 @@ rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,geoview,hysteria,ipt2socks,mi
 rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 
 # 添加 Passwall
-#git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
-git clone https://github.com/yk271/openwrt-passwall-packages.git -b main ./package/passwall_packages
+git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
 git clone https://github.com/xiaorouji/openwrt-passwall.git -b main ./package/passwall_luci
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/direct_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/proxy_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
