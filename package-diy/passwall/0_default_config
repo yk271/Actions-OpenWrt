@@ -92,10 +92,10 @@ config global_app
 
 config global_subscribe
 	option filter_keyword_mode '0'
-	option ss_type 'xray'
-	option trojan_type 'xray'
-	option vmess_type 'xray'
-	option vless_type 'xray'
+	option ss_type 'sing-box'
+	option trojan_type 'sing-box'
+	option vmess_type 'sing-box'
+	option vless_type 'sing-box'
 	option hysteria2_type 'sing-box'
 
 config nodes 'myshunt'
