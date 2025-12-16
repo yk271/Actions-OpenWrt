@@ -100,7 +100,7 @@ config global_subscribe
 
 config nodes 'myshunt'
 	option remarks '分流总节点'
-	option type 'Xray'
+	option type 'sing-box'
 	option protocol '_shunt'
 	option DirectGame '_direct'
 	option ProxyGame '_default'
