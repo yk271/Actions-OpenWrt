@@ -15,6 +15,13 @@ sed -i '/exit 0$/d' ./package/emortal/default-settings/files/99-default-settings
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/immortalwrt/default-settings -O ./my-default-settings
 cat ./my-default-settings >> ./package/emortal/default-settings/files/99-default-settings
 
+# luci: remove ASU dependency (25.12)
+# cd feeds/luci
+# mkdir -p patches
+# wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./patches/luci_2512_remove_asu_dependency.patch
+# patch -p1 < luci_2512_remove_asu_dependency.patch
+# cd -
+
 # 删除自带软件包
 rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,geoview,hysteria,ipt2socks,microsocks,naiveproxy,shadow-tls,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,sing-box,tcping,trojan-plus,tuic-client,v2ray-geodata,v2ray-plugin,xray-core,xray-plugin}
 # 删除自带插件
