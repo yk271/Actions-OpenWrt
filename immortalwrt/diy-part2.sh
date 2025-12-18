@@ -19,7 +19,7 @@ cat ./my-default-settings >> ./package/emortal/default-settings/files/99-default
 # cd feeds/luci
 # mkdir -p patches
 # wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./patches/luci_2512_remove_asu_dependency.patch
-# patch -p1 < luci_2512_remove_asu_dependency.patch
+# patch -p1 < patches/luci_2512_remove_asu_dependency.patch
 # cd -
 
 # 删除自带软件包
