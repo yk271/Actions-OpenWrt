@@ -12,15 +12,15 @@
 
 # 合并配置
 sed -i '/exit 0$/d' ./package/emortal/default-settings/files/99-default-settings
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/immortalwrt/default-settings -O ./my-default-settings
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/immortalwrt-25.12/default-settings -O ./my-default-settings
 cat ./my-default-settings >> ./package/emortal/default-settings/files/99-default-settings
 
 # luci: remove ASU dependency (25.12)
-# cd feeds/luci
-# mkdir -p patches
-# wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./patches/luci_2512_remove_asu_dependency.patch
-# patch -p1 < patches/luci_2512_remove_asu_dependency.patch
-# cd -
+cd feeds/luci
+mkdir -p patches
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./patches/luci_2512_remove_asu_dependency.patch
+patch -p1 < patches/luci_2512_remove_asu_dependency.patch
+cd -
 
 # 删除自带软件包
 rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,geoview,hysteria,ipt2socks,microsocks,naiveproxy,shadow-tls,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,sing-box,tcping,trojan-plus,tuic-client,v2ray-geodata,v2ray-plugin,xray-core,xray-plugin}
@@ -43,15 +43,3 @@ mkdir -p patches
 wget https://github.com/xiaorouji/openwrt-passwall/compare/main...yk271:openwrt-passwall:patch.patch -O ./patches/optimize.patch
 patch -p1 < patches/optimize.patch
 cd -
-
-# unzip
-rm -rf feeds/packages/utils/unzip
-git clone https://github.com/sbwml/feeds_packages_utils_unzip feeds/packages/utils/unzip
-
-# golang 1.25
-rm -rf feeds/packages/lang/golang
-git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
-
-# curl
-rm -rf feeds/packages/net/curl
-git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl

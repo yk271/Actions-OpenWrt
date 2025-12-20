@@ -10,6 +10,18 @@
 # See /LICENSE for more information.
 #
 
+# 合并配置
+sed -i '/exit 0$/d' ./package/emortal/default-settings/files/99-default-settings
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/immortalwrt-24.10/default-settings -O ./my-default-settings
+cat ./my-default-settings >> ./package/emortal/default-settings/files/99-default-settings
+
+# luci: remove ASU dependency (25.12)
+# cd feeds/luci
+# mkdir -p patches
+# wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./patches/luci_2512_remove_asu_dependency.patch
+# patch -p1 < patches/luci_2512_remove_asu_dependency.patch
+# cd -
+
 # 删除自带软件包
 rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,geoview,hysteria,ipt2socks,microsocks,naiveproxy,shadow-tls,shadowsocks-libev,shadowsocks-rust,shadowsocksr-libev,simple-obfs,sing-box,tcping,trojan-plus,tuic-client,v2ray-geodata,v2ray-plugin,xray-core,xray-plugin}
 # 删除自带插件
@@ -28,12 +40,8 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 # Passwall 补丁
 cd package/passwall_luci
 mkdir -p patches
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/add_rule.patch -O ./patches/add_rule.patch
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/delete_some_excluded_domains.patch -O ./patches/delete_some_excluded_domains.patch
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/patches/adjust_some_xray_configurations.patch -O ./patches/adjust_some_xray_configurations.patch
-patch -p1 < patches/add_rule.patch
-patch -p1 < patches/delete_some_excluded_domains.patch
-patch -p1 < patches/adjust_some_xray_configurations.patch
+wget https://github.com/xiaorouji/openwrt-passwall/compare/main...yk271:openwrt-passwall:patch.patch -O ./patches/optimize.patch
+patch -p1 < patches/optimize.patch
 cd -
 
 # unzip
@@ -47,5 +55,3 @@ git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/
 # curl
 rm -rf feeds/packages/net/curl
 git clone https://github.com/sbwml/feeds_packages_net_curl feeds/packages/net/curl
-
-wget https://raw.githubusercontent.com/immortalwrt/packages/refs/heads/openwrt-24.10/lang/rust/Makefile -O ./feeds/packages/lang/rust/Makefile
