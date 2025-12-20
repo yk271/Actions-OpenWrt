@@ -65,7 +65,7 @@ config global_other
 config global_rules
 	option auto_update '1'
 	option week_update '7'
-	option time_update '7'
+	option time_update '5'
 	option chnlist_update '1'
 	option chnroute_update '1'
 	option chnroute6_update '1'
