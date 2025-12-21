@@ -11,17 +11,11 @@ if [ "$CURRENT_UUID" = "87e9f45c-ff46-4fa2-bb22-80a5b22fc7dc" ]; then
   uci set network.wan.device='eth2'
 fi
 
-# 删除 WAN6
+# 防火墙调整
 uci del firewall.@zone[0].network
 uci add_list firewall.@zone[0].network='lan'
 uci del firewall.@zone[1].network
 uci add_list firewall.@zone[1].network='wan'
-uci del network.wan6
-# 应用更改
-uci commit network
-/etc/init.d/network restart
-
-# 防火墙调整
 uci del firewall.@defaults[0].syn_flood
 uci del firewall.@defaults[0].fullcone6
 uci set firewall.@defaults[0].synflood_protect='1'
@@ -31,6 +25,12 @@ uci del firewall.@defaults[0].flow_offloading_hw
 # 应用更改
 uci commit firewall
 /etc/init.d/firewall restart
+
+# 删除 WAN6
+uci del network.wan6
+# 应用更改
+uci commit network
+/etc/init.d/network restart
 
 # 禁用 IPv6 DHCP
 uci del dhcp.lan.ra
