@@ -2,7 +2,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: build-immortalwrt
+name: build-immortalwrt-24.10
 
 on:
   repository_dispatch:
