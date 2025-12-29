@@ -37,6 +37,9 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 
+rm -rf ./package/passwall_packages/microsocks
+git clone https://github.com/yk271/my-packages.git -b main ./package/my-packages
+
 # Passwall 补丁
 cd package/passwall_luci
 mkdir -p patches
