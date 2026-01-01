@@ -74,7 +74,7 @@ uci -q batch <<-EOF
 	del upnpd.config.stun_port
 	del upnpd.config.secure_mode
 	del upnpd.config.log_output
-	set upnpd.config.enabled='1'
+	set upnpd.config.enabled='0'
 	set upnpd.config.download='102400'
 	set upnpd.config.upload='5120'
 
