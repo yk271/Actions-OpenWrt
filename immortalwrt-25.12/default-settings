@@ -50,6 +50,9 @@ uci -q batch <<-EOF
 	del dhcp.lan.max_valid_lifetime
 	del dhcp.lan.dhcpv6
 
+	# 强制 DHCP
+	set dhcp.lan.force='1'
+
 	# DNS 配置调整
 	del dhcp.@dnsmasq[0].nonwildcard
 	del dhcp.@dnsmasq[0].rebind_localhost
