@@ -28,8 +28,8 @@ rm -rf ./feeds/packages/net/{chinadns-ng,dns2socks,geoview,hysteria,ipt2socks,mi
 rm -rf ./feeds/luci/applications/{luci-app-passwall,luci-app-passwall2}
 
 # 添加 Passwall
-git clone https://github.com/xiaorouji/openwrt-passwall-packages.git -b main ./package/passwall_packages
-git clone https://github.com/xiaorouji/openwrt-passwall.git -b main ./package/passwall_luci
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git -b main ./package/passwall_packages
+git clone https://github.com/Openwrt-Passwall/openwrt-passwall.git -b main ./package/passwall_luci
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/direct_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/direct_host
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/proxy_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/proxy_host
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/block_host -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/block_host
@@ -43,6 +43,6 @@ git clone https://github.com/yk271/my-packages.git -b main ./package/my-packages
 # Passwall 补丁
 cd package/passwall_luci
 mkdir -p patches
-wget https://github.com/xiaorouji/openwrt-passwall/compare/main...yk271:openwrt-passwall:patch.patch -O ./patches/optimize.patch
+wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:patch.patch -O ./patches/optimize.patch
 patch -p1 < patches/optimize.patch
 cd -
