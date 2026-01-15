@@ -40,6 +40,6 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 # Passwall 补丁
 cd package/passwall_luci
 mkdir -p patches
-wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:patch.patch -O ./patches/optimize.patch
+wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:diy.patch -O ./patches/optimize.patch
 patch -p1 < patches/optimize.patch
 cd -
