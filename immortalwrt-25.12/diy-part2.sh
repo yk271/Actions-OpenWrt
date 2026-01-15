@@ -17,9 +17,9 @@ cat ./my-default-settings >> ./package/emortal/default-settings/files/99-default
 
 # luci: remove ASU dependency (25.12)
 cd feeds/luci
-mkdir -p patches
-wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./patches/luci_2512_remove_asu_dependency.patch
-patch -p1 < patches/luci_2512_remove_asu_dependency.patch
+mkdir -p diy-patches
+wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/patches/luci_2512_remove_asu_dependency.patch -O ./diy-patches/luci_2512_remove_asu_dependency.patch
+patch -p1 < diy-patches/luci_2512_remove_asu_dependency.patch
 cd -
 
 # 删除自带软件包
@@ -39,9 +39,9 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 
 # Passwall 补丁
 cd package/passwall_luci
-mkdir -p my-patches
-wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:diy.patch -O ./my-patches/optimize.patch
-patch -p1 < my-patches/optimize.patch
+mkdir -p diy-patches
+wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:diy.patch -O ./diy-patches/optimize.patch
+patch -p1 < diy-patches/optimize.patch
 cd -
 
 # Xray-core SS2022 outbound: Fix UDP leak
