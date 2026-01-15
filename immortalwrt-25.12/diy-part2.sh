@@ -39,8 +39,9 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 
 # Passwall 补丁
 cd package/passwall_luci
-mkdir -p patches
-wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:diy.patch -O ./patches/100-optimize.patch
+mkdir -p my-patches
+wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:diy.patch -O ./my-patches/optimize.patch
+patch -p1 < my-patches/optimize.patch
 cd -
 
 # Xray-core SS2022 outbound: Fix UDP leak
