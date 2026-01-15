@@ -43,3 +43,9 @@ mkdir -p patches
 wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:openwrt-passwall:diy.patch -O ./patches/optimize.patch
 patch -p1 < patches/optimize.patch
 cd -
+
+# Xray-core SS2022 outbound: Fix UDP leak
+cd package/passwall_packages/xray-core
+mkdir -p patches
+wget https://patch-diff.githubusercontent.com/raw/XTLS/Xray-core/pull/5544.patch -O ./patches/100-fix-udp-leak.patch
+cd -
