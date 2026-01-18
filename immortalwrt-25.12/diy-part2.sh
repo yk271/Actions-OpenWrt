@@ -44,8 +44,5 @@ wget https://github.com/Openwrt-Passwall/openwrt-passwall/compare/main...yk271:o
 patch -p1 < diy-patches/optimize.patch
 cd -
 
-# Xray-core SS2022 outbound: Fix UDP leak
-cd package/passwall_packages/xray-core
-mkdir -p patches
-wget https://patch-diff.githubusercontent.com/raw/XTLS/Xray-core/pull/5544.patch -O ./patches/100-fix-udp-leak.patch
-cd -
+rm -rf feeds/packages/lang/golang
+git clone --depth=1 https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
