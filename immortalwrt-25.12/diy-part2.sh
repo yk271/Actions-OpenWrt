@@ -32,7 +32,7 @@ git clone https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git -b m
 git clone https://github.com/Openwrt-Passwall/openwrt-passwall.git -b main ./package/passwall_luci
 
 cd package/passwall_luci
-git checkout 97921a9178f10be41e31bdabcef69c0ca444adb4
+git revert 1c01e4590ab85df3ca181ae208f9e42f8aaff5a4
 cd -
 
 # Passwall DIY
