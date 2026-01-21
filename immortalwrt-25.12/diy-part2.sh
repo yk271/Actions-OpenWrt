@@ -37,6 +37,10 @@ wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/pac
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/gfwlist -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/rules/gfwlist
 wget https://raw.githubusercontent.com/yk271/Actions-OpenWrt/refs/heads/main/package-diy/passwall/0_default_config -O ./package/passwall_luci/luci-app-passwall/root/usr/share/passwall/0_default_config
 
+cd package/passwall_luci
+git checkout 97921a9178f10be41e31bdabcef69c0ca444adb4
+cd -
+
 # Passwall 补丁
 cd package/passwall_luci
 mkdir -p diy-patches
