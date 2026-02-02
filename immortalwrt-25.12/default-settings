@@ -28,8 +28,10 @@ uci -q batch <<-EOF
 	del firewall.@zone[1].network
 	add_list firewall.@zone[1].network='wan'
 
+	del firewall.@defaults[0].syn_flood
 	del firewall.@defaults[0].fullcone
 	del firewall.@defaults[0].fullcone6
+	set firewall.@defaults[0].synflood_protect='1'
 
 	# x86 仅支持软件流量卸载
 	set firewall.@defaults[0].flow_offloading='1'
