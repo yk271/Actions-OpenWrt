@@ -30,7 +30,6 @@ uci -q batch <<-EOF
 
 	del firewall.@defaults[0].fullcone
 	del firewall.@defaults[0].fullcone6
-	set firewall.@defaults[0].synflood_protect='1'
 
 	# x86 仅支持软件流量卸载
 	set firewall.@defaults[0].flow_offloading='1'
